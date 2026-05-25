@@ -1,19 +1,20 @@
-public static int[] perfectSquares(int[] numbers) {
+public class TaskTwo{
+  public static int[] perfectSquares(int[] numbers){
     int perfectCount = 0;
-    for (int index = 0; index < numbers.length; index++) {
+    for (int index = 0; index < numbers.length; index++){
         int squareRoot = 0;
-        for (int count = 1; count * count <= numbers[index]; count++) {
+        for (int count = 1; count * count <= numbers[index]; count++){
             squareRoot = count;
         }
-        if (squareRoot * squareRoot == numbers[index]) {
+        if (squareRoot * squareRoot == numbers[index]){
             perfectCount++;
         }
     }
     int[] result = new int[perfectCount];
     int resultIndex = 0;                              
-    for (int index = 0; index < numbers.length; index++) {
+    for (int index = 0; index < numbers.length; index++){
         int squareRoot = 0;
-        for (int count = 1; count * count <= numbers[index]; count++) {
+        for (int count = 1; count * count <= numbers[index]; count++){
             squareRoot = count;
         }
         if (squareRoot * squareRoot == numbers[index]){
@@ -22,4 +23,5 @@ public static int[] perfectSquares(int[] numbers) {
         }
     }
     return result;
+  }
 }
