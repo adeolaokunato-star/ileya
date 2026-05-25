@@ -4,7 +4,7 @@ public class TestTaskOne{
     @Test
     public void testThatZerosAreMovedToEnd() {
         int[] number   = { 5, 0, 3, 0, 2, 0 };
-        int[] actual   = TaskFive.moveZerosToEnd(number);
+        int[] actual   = TaskOne.moveZerosToEnd(number);
         int[] expected = { 5, 3, 2, 0, 0, 0 };
         assertArrayEquals(expected, actual);
     }
