@@ -1,0 +1,164 @@
+Sure! Let me go line by line:
+
+---
+
+```java
+import java.util.Scanner;
+```
+This brings in the `Scanner` tool so your program can read what the user types.
+
+---
+
+```java
+public class BookSuggestionSystem {
+```
+Every Java program lives inside a class. The name must match the file name.
+
+---
+
+```java
+public static void main(String[] args) {
+```
+This is where your program starts running. Java always looks for `main` first.
+
+---
+
+```java
+Scanner scanner = new Scanner(System.in);
+```
+Creates a scanner that listens to the keyboard (`System.in` means keyboard input).
+
+---
+
+```java
+String[] books = {"The Hobbit", "The Great Gatsby", "1984", "To Kill a Mockingbird", "Animal Farm"};
+```
+Creates an array (a list) of books. `String[]` means it holds words/text.
+
+---
+
+```java
+int bookCount = 5;
+```
+Tracks how many books are currently in the array. Starts at 5 because we added 5 books above.
+
+---
+
+```java
+boolean running = true;
+while (running) {
+```
+`running = true` keeps the menu looping. When it becomes `false` the loop stops.
+
+---
+
+```java
+System.out.println("\n1. Get Suggestions");
+```
+Prints the menu to the screen. `\n` just adds an empty line before it.
+
+---
+
+```java
+String choice = scanner.nextLine();
+```
+Waits for the user to type something and press Enter, then saves it in `choice`.
+
+---
+
+```java
+if (choice.equals("1")) {
+```
+Checks if the user typed `1`. We use `.equals()` instead of `==` for comparing text in Java.
+
+---
+
+```java
+String answer = "yes";
+while (answer.equals("yes")) {
+```
+Starts the suggestion loop. It keeps going as long as the user keeps typing `yes`.
+
+---
+
+```java
+int randomIndex = (int) (Math.random() * bookCount);
+int randomPage  = (int) (Math.random() * 100) + 1;
+```
+Picks a random book and a random page between 1 and 100. `Math.random()` gives a decimal between 0 and 1, multiplying it scales it to the range we want.
+
+---
+
+```java
+System.out.println("  Book Title: " + books[randomIndex]);
+System.out.println("  Page: " + randomPage);
+```
+Prints the randomly picked book and page. `books[randomIndex]` gets the book at that position in the array.
+
+---
+
+```java
+answer = scanner.nextLine();
+```
+Asks the user again if they want another suggestion and saves the answer.
+
+---
+
+```java
+boolean exists = false;
+for (int i = 0; i < bookCount; i++) {
+    if (books[i].equalsIgnoreCase(title)) {
+        exists = true;
+        break;
+    }
+}
+```
+Loops through every book to check if it already exists. `equalsIgnoreCase` means `"hobbit"` and `"Hobbit"` are treated the same. `break` stops the loop early once found.
+
+---
+
+```java
+books[bookCount] = title;
+bookCount++;
+```
+Adds the new book at the next empty slot in the array, then increases the count by 1.
+
+---
+
+```java
+for (int j = i; j < bookCount - 1; j++) {
+    books[j] = books[j + 1];
+}
+bookCount--;
+```
+When removing a book, this shifts everything after it one step to the left to fill the gap, then reduces the count by 1.
+
+---
+
+```java
+books[i] = scanner.nextLine();
+```
+Directly replaces the old book title at position `i` with whatever the user types.
+
+---
+
+```java
+for (int i = 0; i < bookCount; i++) {
+    System.out.println("  " + (i + 1) + ". " + books[i]);
+}
+```
+Loops through and prints every book. `i + 1` makes the numbering start at 1 instead of 0.
+
+---
+
+```java
+running = false;
+```
+Sets running to false so the `while` loop stops and the program ends.
+
+---
+
+```java
+scanner.close();
+```
+Closes the scanner cleanly when the program is done. Good habit to always close it.
