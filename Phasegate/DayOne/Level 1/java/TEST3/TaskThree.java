@@ -1,4 +1,4 @@
-public class TaskTwo{
+public class TaskThree{
   public static int[] perfectSquares(int[] numbers){
     int perfectCount = 0;
     for (int index = 0; index < numbers.length; index++){
