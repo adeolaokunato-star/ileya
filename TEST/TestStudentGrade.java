@@ -29,8 +29,27 @@ public class TestStudentGrade{
         int actual = StudentGrade.studentsPassed(scores, 1);
         assertEquals(expected, actual);
     }
-        
-    
+    @Test
+    public void testStudentsHighestInASubject(){
+        int[][] scores = {{67, 21, 50}, {98, 62, 56}, {93, 51, 55}, {78, 83, 66}};
+        int expected = 98;
+        int actual = StudentGrade.getsTheHighestInASubject(scores, 0);
+        assertEquals(expected, actual);
+    }  
+    @Test
+    public void testStudentsLowestInASubject(){
+        int[][] scores = {{21, 67, 50}, {98, 62, 56}, {93, 51, 55}, {78, 83, 66}};
+        int expected = 21;
+        int actual = StudentGrade.getsTheLowestInASubject(scores, 0);
+        assertEquals(expected, actual);
+    } 
+        @Test
+    public void testSubjectTotal(){
+        int[][] scores = {{67, 21, 50}, {98, 62, 56}, {93, 51, 55}, {78, 83, 66}};
+        int expected = 336;
+        int actual = StudentGrade.getSubjectTotal(scores, 0);
+        assertEquals(expected, actual);
+    }
     
     
     
